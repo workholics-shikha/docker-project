@@ -33,7 +33,7 @@ const startServer = async () => {
         // app.listen(PORT, () => {
         //     console.log(`Server running on port ${PORT}`);
         // });
-        app.listen(process.env.PORT || 5000)
+        app.listen(process.env.PORT)
     } catch (error) {
         console.error('Database connection failed:', error.message);
         process.exit(1);
