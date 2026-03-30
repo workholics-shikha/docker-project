@@ -1,5 +1,5 @@
 const express = require('express');
- 
+
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors'); // ✅ ADD
@@ -8,7 +8,7 @@ const app = express();
 
 // ✅ ADD THIS
 app.use(cors({
-  origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000'
 }));
 
 dotenv.config();
@@ -19,7 +19,7 @@ const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const categoryRoutes = require('./routes/categoryRoutes');
 
-app.use('/api/users', userRoutes); 
+app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/categories', categoryRoutes);
 
@@ -33,7 +33,11 @@ const startServer = async () => {
         // app.listen(PORT, () => {
         //     console.log(`Server running on port ${PORT}`);
         // });
-        app.listen(process.env.PORT)
+
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
+        
     } catch (error) {
         console.error('Database connection failed:', error.message);
         process.exit(1);
